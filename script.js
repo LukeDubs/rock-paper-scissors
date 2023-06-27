@@ -1,5 +1,3 @@
-console.log('hello, world');
-
 const getComputerChoice = () => {
     let randomNum = Math.floor((Math.random() * 3) + 1);
 
@@ -13,7 +11,7 @@ const getComputerChoice = () => {
 }
 
 const playRound = (playerSelection, computerSelection) => {
-    let ps = playerSelection.toLowerCase();;
+    let ps = playerSelection.toLowerCase();
     let cs = computerSelection.toLowerCase();
     
     if ((ps === 'rock' && cs === 'paper') || (ps === 'paper' && cs === 'scissors')
@@ -28,21 +26,24 @@ const playRound = (playerSelection, computerSelection) => {
 }
 
 const game = () => {
+    let score = 0; 
+
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt('Rock, Paper or Scissors');
         const computerSelection = getComputerChoice(); 
-        let score = 0;  
-        
-        playRound(playerSelection, computerSelection);
+         
+        let result = playRound(playerSelection, computerSelection);
 
-        // Take the result from playRound into a variable
-        // Update the score in the loop
-        // If the result (use .startsWith()):
-        // You win, score++; you lose, score--
-        // return the score outside the loop
-        
+        if (result.startsWith("You win")) {
+            score++;
+        } 
     }
-    
+
+    if (score >= 3) {
+        return 'Player Wins';
+    } else {
+        return 'Computer Wins';
+    }
 }
  
 console.log(game());
