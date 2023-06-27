@@ -35,7 +35,11 @@ const game = () => {
         
         playRound(playerSelection, computerSelection);
 
-        if 
+        // Take the result from playRound into a variable
+        // Update the score in the loop
+        // If the result (use .startsWith()):
+        // You win, score++; you lose, score--
+        // return the score outside the loop
         
     }
     
